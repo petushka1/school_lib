@@ -1,7 +1,7 @@
 require './person.rb'
 
 class Teacher < Person
-  def initialize(specialization, age, name = "Unknown")
+  def initialize(specialization, age, name = 'Unknown')
     super(age, name)
     @specialization = specialization
   end
