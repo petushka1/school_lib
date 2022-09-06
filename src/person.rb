@@ -1,22 +1,14 @@
 class Person
-  # getters
-  attr_writer :id, :name, :age, :parent_permission
+# getters
+  attr_reader :id, :name, :age, :parent_permission
+# setters
+  attr_writer :name, :age
 
   def initialize(age, name = 'Unknown', parent_permission = true)
     @id = Random.rand(1..1000)
     @name = name
     @age = age
     @parent_permission = parent_permission
-  end
-
-  # setters
-
-  def name=(value)
-    @name = value
-  end
-
-  def age=(value)
-    @age = value
   end
 
   def can_use_services?
