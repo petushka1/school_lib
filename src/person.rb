@@ -10,19 +10,13 @@ class Person
   end
 
   def can_use_services?
-    return false unless is_of_age? || @parent_permission == true
-
-    return true
+    (is_of_age? || @parent_permission == true) ? true : false
   end
 
   private
 
   def is_of_age?
-    if @age > 18
-      return true
-    else
-      return false
-    end
+    (@age > 18) ? true : false
   end
 end
 
@@ -44,4 +38,8 @@ end
 # puts person3.can_use_services?
 
 person2 = Person.new(16, "Mark", false)
-person3.can_use_services?
+puts person2.can_use_services?
+
+person3 = Person.new(10, "Maggy")
+person3
+puts person3.can_use_services?
