@@ -1,8 +1,6 @@
 class Person
-# getters
-  attr_reader :id, :name, :age, :parent_permission
-# setters
-  attr_writer :name, :age
+  attr_reader :id, :parent_permission
+  attr_accessor :name, :age
 
   def initialize(age, name = 'Unknown', parent_permission = true)
     @id = Random.rand(1..1000)
@@ -44,3 +42,6 @@ end
 # person3 = Person.new(10, "Maggy")
 # person3
 # puts person3.can_use_services?
+
+person2 = Person.new(16, "Mark", false)
+person3.can_use_services?
