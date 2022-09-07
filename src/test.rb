@@ -7,11 +7,11 @@ require_relative 'rental'
 
 # Classroom-student agregation test
 
-student1 = Student.new(20, "Mike")
-student2 = Student.new(4, "Simona")
-student3 = Student.new(12, "Brad")
+student1 = Student.new(20, 'Mike')
+student2 = Student.new(4, 'Simona')
+student3 = Student.new(12, 'Brad')
 
-classroom = Classroom.new("Math")
+classroom = Classroom.new('Math')
 
 puts classroom.label
 puts student1.name
