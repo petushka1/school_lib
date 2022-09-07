@@ -23,7 +23,7 @@ classroom.add_student(student2)
 
 student3.add_classroom(classroom)
 
-puts 'all students in the #{classroom.label} classroom'
+puts "all students in the #{classroom.label} classroom"
 puts classroom.students
 
 # book-rental association test
@@ -36,7 +36,6 @@ puts person1.name
 puts book1.title
 puts book1.author
 
-rental1
 puts rental1.date
 puts rental1.book
 puts rental1.person
