@@ -39,3 +39,12 @@ puts book1.author
 puts rental1.date
 puts rental1.book
 puts rental1.person
+
+# add_rental methods
+
+book2 = Book.new('Book2', 'Author2')
+person2 = Person.new(23, 'Reader2')
+person3 = Person.new(17, 'Reader3')
+
+puts book2.add_rental('0002-00-00', person2)
+puts person3.add_rental('0003-00-00', book2)
