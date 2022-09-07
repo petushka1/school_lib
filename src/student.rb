@@ -1,7 +1,10 @@
-require './person'
+require_relative 'person'
 
 class Student < Person
-  def initialize(classroom, age, name = 'Unknown', parent_permission: true)
+
+attr_accessor :classroom
+
+  def initialize(classroom, age, name = 'Unknown', parent_permission = true)
     super(age, name, parent_permission)
     @classroom = classroom
   end
@@ -13,7 +16,7 @@ end
 
 # test cases
 
-# student1 = Student.new('classroom', 38, "Nick")
-# student1
-# puts student1.name
-# puts student1.play_hooky()
+student1 = Student.new('classroom', 38, "Nick", false)
+student1
+puts student1.name
+puts student1.play_hooky()
