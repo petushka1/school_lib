@@ -26,6 +26,15 @@ To get a copy of this project running on your local computer, do the followings:
 ```
     bundler install
 ```
+add on top of main.rb
+```
+    #!/usr/bin/env ruby
+```
+run
+```
+    chmod 755 main.rb
+```
+
 
 Follow all steps to install [_Ruby_](https://rubyinstaller.org/) 
 
