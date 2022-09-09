@@ -27,7 +27,7 @@ class App
     end
     @teachers.each do |t|
       print "-------[#{@teachers.index(t) + @students.length}] [Teacher] ID: #{t.id}, Name: #{t.name}, "
-      print "Age: #{t.age}, Specialization: #{t.specialization}"
+      puts "Age: #{t.age}, Specialization: #{t.specialization}\n"
     end
   end
 
