@@ -16,16 +16,15 @@ class App
   end
 
   def list_all_books
-    @books.each { |b| puts "-------[#{@books.index(b)}] [Book] Title: #{b.title}, Author: #{b.author}" }
+    @books.each do |b| 
+        puts "-------[#{@books.index(b)}] [Book] Title: #{b.title}, Author: #{b.author}"
   end
 
   def list_all_people
-    @students.each { |s|
+    @students.each do |s|
       puts "-------[#{@students.index(s)}] [Student] ID: #{s.id}, Name: #{s.name}, Age: #{s.age}"
-    }
-    @teachers.each { |t|
+    @teachers.each do |t|
       puts "-------[#{@teachers.index(t) + @students.length}] [Teacher] ID: #{t.id}, Name: #{t.name}, Age: #{t.age}, Specialization: #{t.specialization}"
-    }
   end
 
   def create_student(age, name)
