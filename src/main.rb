@@ -54,9 +54,26 @@ def create_student(app)
   name = gets.chomp
   puts 'Enter Student [Age]'
   age = gets.chomp
-  app.create_student(age, name)
+  parent_permission = check_permission(age)
+  app.create_student(age, parent_permission, name)
   puts "New Student added:\n[Student] ID: #{app.students.last.id}, "
-  print "Name: #{app.students.last.name}, Age: #{app.students.last.age}"
+  print "Name: #{app.students.last.name}, Age: #{app.students.last.age} "
+  print "Parent permission: #{app.students.last.parent_permission ? 'YES' : 'NO'}\n"
+end
+
+def check_permission(age)
+  if age.to_i < 18
+    puts 'Has the student got a parent permission? [Y/N]'
+    input = gets.chomp
+    case input
+    when 'y' || 'Y'
+      true
+    when 'n' || 'N'
+      false
+    end
+  else
+    true
+  end
 end
 
 def create_teacher(app)
@@ -66,7 +83,7 @@ def create_teacher(app)
   age = gets.chomp
   puts 'Enter Teacher [Specialization]'
   specialization = gets.chomp
-  app.create_teacher(age, name, specialization)
+  app.create_teacher(specialization, age, name)
   puts "New Teacher added:\n[Teacher] ID: #{app.teachers.last.id}, "
   print "Name: #{app.teachers.last.name}, Age: #{app.teachers.last.age}, "
   print "Specialization: #{app.teachers.last.specialization}\n"
