@@ -32,7 +32,7 @@ add on top of main.rb
 ```
 run
 ```
-    chmod u+x main.rb
+    chmod 755 main.rb
 ```
 
 
