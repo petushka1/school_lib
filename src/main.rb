@@ -16,9 +16,8 @@ def greeting
   puts 'Make your choice to continue...'
 end
 
-def user_choice(choice, app)
+def user_choice(choice, app) # rubocop:disable Metrics/CyclomaticComplexity
   case choice
-
   when '1'
     app.list_all_books
   when '2'
