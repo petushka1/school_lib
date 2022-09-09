@@ -112,7 +112,7 @@ def select_book(app)
     input = gets.chomp.to_i
     check = check_input(input, app.books.length - 1)
   end
-  book = app.books[input]
+  app.books[input]
 end
 
 def select_person(app)
@@ -125,11 +125,11 @@ def select_person(app)
     max = app.students.length + (app.teachers.length - 1)
     check = check_input(input, max)
   end
-  person = if input >= app.students.length
-             app.teachers[input - app.students.length]
-           else
-             app.students[input]
-           end
+  if input >= app.students.length
+    app.teachers[input - app.students.length]
+  else
+    app.students[input]
+  end
 end
 
 def list_rentals_by_id(app)
