@@ -50,7 +50,8 @@ def create_person(app)
     puts 'Enter Student [Age]'
     age = gets.chomp
     app.create_student(age, name)
-    puts "New Student added:\n[Student] ID: #{app.students.last().id}, Name: #{app.students.last().name}, Age: #{app.students.last().age}"
+    print "New Student added:\n[Student] ID: #{app.students.last.id}, "
+    print "Name: #{app.students.last.name}, Age: #{app.students.last.age}"
 
   when '2'
     puts 'Enter Teacher [Name]'
@@ -60,7 +61,8 @@ def create_person(app)
     puts 'Enter Teacher [Specialization]'
     specialization = gets.chomp
     app.create_teacher(age, name, specialization)
-    puts "New Teacher added:\n[Teacher] ID: #{app.teachers.last().id}, Name: #{app.teachers.last().name}, Age: #{app.teachers.last().age}, Specialization: #{app.teachers.last().specialization}"
+    print "New Teacher added:\n[Teacher] ID: #{app.teachers.last.id}, "
+    print "Name: #{app.teachers.last.name}, Age: #{app.teachers.last.age}, Specialization: #{app.teachers.last.specialization}"
   else
     'Select person category first'
   end
@@ -73,22 +75,20 @@ def create_book(app)
   puts 'Enter Book [Author]'
   author = gets.chomp
   app.create_book(title, author)
-  puts "New Book added:\n[Book] Title: #{app.books.last().title}, Author: #{app.books.last().author}\n"
+  puts "New Book added:\n[Book] Title: #{app.books.last.title}, Author: #{app.books.last.author}\n"
 end
 
 def create_rental(app)
   people = app.students.concat app.teachers
 
-  unless people.length > 0 && app.books.length > 0
-    return puts 'There should be at least one person and one book'
-  end
+  return puts 'There should be at least one person and one book' unless people.length > 0 && app.books.length > 0
 
   puts 'Select a book from the list'
   app.list_all_books
   check = false
 
   while check == false
-    puts "Enter a Book number"
+    puts 'Enter a Book number'
     input = gets.chomp.to_i
     check = check_input(input, app.books.length)
   end
@@ -100,7 +100,7 @@ def create_rental(app)
   check = false
 
   while check == false
-    puts "Enter a Person number"
+    puts 'Enter a Person number'
     input = gets.chomp.to_i
     check = check_input(input, people.length)
   end
@@ -108,10 +108,10 @@ def create_rental(app)
   person = people[input]
   app.create_rental(book, person)
 
-  puts "New Rental added:"
-  puts "[Rental] Date: #{app.rentals.last().date}"
-  puts "---------Book: #{app.rentals.last().book.title}"
-  puts "---------Person: #{app.rentals.last().person.name}\n"
+  puts 'New Rental added:'
+  puts "[Rental] Date: #{app.rentals.last.date}"
+  puts "---------Book: #{app.rentals.last.book.title}"
+  puts "---------Person: #{app.rentals.last.person.name}\n"
 end
 
 def check_input(input, max)
@@ -130,7 +130,7 @@ def list_rentals_by_id(app)
 end
 
 def main
-  app = App.new()
+  app = App.new
   exit = false
   puts 'Welcome to Ruby Hell !'
   while exit == false

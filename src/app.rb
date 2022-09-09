@@ -16,15 +16,19 @@ class App
   end
 
   def list_all_books
-    @books.each do |b| 
-        puts "-------[#{@books.index(b)}] [Book] Title: #{b.title}, Author: #{b.author}"
+    @books.each do |b|
+      puts "-------[#{@books.index(b)}] [Book] Title: #{b.title}, Author: #{b.author}"
+    end
   end
 
   def list_all_people
     @students.each do |s|
       puts "-------[#{@students.index(s)}] [Student] ID: #{s.id}, Name: #{s.name}, Age: #{s.age}"
+    end
     @teachers.each do |t|
-      puts "-------[#{@teachers.index(t) + @students.length}] [Teacher] ID: #{t.id}, Name: #{t.name}, Age: #{t.age}, Specialization: #{t.specialization}"
+      print "-------[#{@teachers.index(t) + @students.length}] [Teacher] ID: #{t.id}, Name: #{t.name}, "
+      print "Age: #{t.age}, Specialization: #{t.specialization}"
+    end
   end
 
   def create_student(age, name)
@@ -46,9 +50,7 @@ class App
 
   def list_rentals(id)
     rentals = filter_rentals(id)
-    unless rentals != []
-      return 'No such person or rentals for this person'
-    end
+    return 'No such person or rentals for this person' unless rentals != []
 
     rentals.each { |r| puts "Date: #{r.date}, Book: #{r.book.title}" }
   end
