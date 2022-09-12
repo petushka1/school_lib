@@ -9,82 +9,81 @@ class Prosessor < App
         puts 'Enter Student [Age]'
         age = gets.chomp
         parent_permission = check_permission(age)
-        create_student_app(age, parent_permission, name)
+        _create_student(age, parent_permission, name)
         puts "New Student added:\n[Student] ID: #{students.last.id}, "
         print "Name: #{students.last.name}, Age: #{students.last.age} "
         print "Parent permission: #{students.last.parent_permission ? 'YES' : 'NO'}\n"
     end
 
-    def create_teacher(app)
+    def create_teacher
         puts 'Enter Teacher [Name]'
         name = gets.chomp
         puts 'Enter Teacher [Age]'
         age = gets.chomp
         puts 'Enter Teacher [Specialization]'
         specialization = gets.chomp
-        app.create_teacher(specialization, age, name)
-        puts "New Teacher added:\n[Teacher] ID: #{app.teachers.last.id}, "
-        print "Name: #{app.teachers.last.name}, Age: #{app.teachers.last.age}, "
-        print "Specialization: #{app.teachers.last.specialization}\n"
+        _create_teacher(specialization, age, name)
+        puts "New Teacher added:\n[Teacher] ID: #{teachers.last.id}, "
+        print "Name: #{teachers.last.name}, Age: #{teachers.last.age}, "
+        print "Specialization: #{teachers.last.specialization}\n"
     end
-=begin
-    def create_book(app)
+
+    def create_book
         puts 'Read nothing? Just google some [Book] to add!'
         puts 'Enter Book [Title]'
         title = gets.chomp
         puts 'Enter Book [Author]'
         author = gets.chomp
-        app.create_book(title, author)
-        puts "New Book added:\n[Book] Title: #{app.books.last.title}, Author: #{app.books.last.author}\n"
+        _create_book(title, author)
+        puts "New Book added:\n[Book] Title: #{books.last.title}, Author: #{books.last.author}\n"
     end
-    
-    def create_rental(app)
+
+    def create_rental
         msg = 'There should be at least one person and one book'
-        return puts msg unless app.students.length.positive? || (app.teachers.length.positive? && app.books.length.positive?)
+        return puts msg unless students.length.positive? || (teachers.length.positive? && books.length.positive?)
     
-        book = select_book(app)
-        person = select_person(app)
-        app.create_rental(book, person)
+        book = select_book
+        person = select_person
+        _create_rental(book, person)
     
         puts 'New Rental added:'
-        puts "[Rental] Date: #{app.rentals.last.date}"
-        puts "---------Book: #{app.rentals.last.book.title}"
-        puts "---------Person: #{app.rentals.last.person.name}\n"
+        puts "[Rental] Date: #{rentals.last.date}"
+        puts "---------Book: #{rentals.last.book.title}"
+        puts "---------Person: #{rentals.last.person.name}\n"
     end
     
     def check_input(input, max)
         input.between?(0, max)
     end
     
-    def select_book(app)
+    def select_book
         puts 'Select a book from the list'
-        app.list_all_books
+        list_all_books
         check = false
         while check == false
         puts 'Enter a Book number'
         input = gets.chomp.to_i
-        check = check_input(input, app.books.length - 1)
+        check = check_input(input, books.length - 1)
         end
-        app.books[input]
+        books[input]
     end
     
-    def select_person(app)
+    def select_person
         puts 'Select a person from the list'
-        app.list_all_people
+        list_all_people
         check = false
         while check == false
         puts 'Enter a Person number'
         input = gets.chomp.to_i
-        max = app.students.length + (app.teachers.length - 1)
+        max = students.length + (teachers.length - 1)
         check = check_input(input, max)
         end
-        if input >= app.students.length
-        app.teachers[input - app.students.length]
+        if input >= students.length
+        teachers[input - students.length]
         else
-        app.students[input]
+        students[input]
         end
     end
-=end
 end
 
   

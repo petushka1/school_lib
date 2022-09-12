@@ -31,19 +31,19 @@ class App
     end
   end
 
-  def create_student_app(age, parent_permission, name)
+  def _create_student(age, parent_permission, name)
     @students << Student.new(age, parent_permission, name)
   end
 
-  def create_teacher(specialization, age, name)
+  def _create_teacher(specialization, age, name)
     @teachers << Teacher.new(specialization, age, name)
   end
 
-  def create_book(title, author)
+  def _create_book(title, author)
     @books << Book.new(title, author)
   end
 
-  def create_rental(book, person)
+  def _create_rental(book, person)
     date = DateTime.now
     @rentals << Rental.new(date, book, person)
   end
