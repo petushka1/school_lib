@@ -9,7 +9,7 @@ class Prosessor < App
         puts 'Enter Student [Age]'
         age = gets.chomp
         parent_permission = check_permission(age)
-        create_student(age, parent_permission, name)
+        create_student_app(age, parent_permission, name)
         puts "New Student added:\n[Student] ID: #{students.last.id}, "
         print "Name: #{students.last.name}, Age: #{students.last.age} "
         print "Parent permission: #{students.last.parent_permission ? 'YES' : 'NO'}\n"

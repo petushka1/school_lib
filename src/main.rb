@@ -22,7 +22,7 @@ require_relative 'prosessor'
     when '2'
       app.list_all_people
     when '3'
-      app.create_person
+      create_person(app)
     when '4'
       app.create_book
     when '5'

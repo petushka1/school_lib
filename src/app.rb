@@ -31,7 +31,7 @@ class App
     end
   end
 
-  def create_student(age, parent_permission, name)
+  def create_student_app(age, parent_permission, name)
     @students << Student.new(age, parent_permission, name)
   end
 
