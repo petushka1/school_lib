@@ -1,8 +1,5 @@
-require_relative 'app'
+#!/usr/bin/env ruby
 require_relative 'prosessor'
-
-class Main 
-  include Prosessor
 
   def greeting
     commands = [
@@ -25,13 +22,13 @@ class Main
     when '2'
       app.list_all_people
     when '3'
-      Processocreate_person(app)
+      app.create_person
     when '4'
-      create_book(app)
+      app.create_book
     when '5'
-      create_rental(app)
+      app.create_rental
     when '6'
-      list_rentals_by_id(app)
+      app.list_rentals_by_id
     when '7'
       return true
     else
@@ -45,9 +42,9 @@ class Main
     choice = gets.chomp
     case choice
     when '1'
-      create_student(app)
+      app.create_student
     when '2'
-      create_teacher(app)
+      app.create_teacher
     else
       'Select person category first'
     end
@@ -62,13 +59,13 @@ class Main
         true
       when 'n' || 'N'
         false
-      else
       end
     else
       true
     end
   end
 
+=begin
   def list_rentals_by_id(app)
     puts 'Enter person ID to see her/his rentals or press [2] to get a list of people'
     input = gets.chomp
@@ -79,18 +76,17 @@ class Main
       app.list_rentals(input.to_i)
     end
   end
+=end
 
   def main
-    app = App.new
+    app = Prosessor.new
     exit = false
-    puts 'Welcome to Ruby Hell !'
+    puts 'Welcome to Ruby Hell!'
     while exit == false
       greeting
       exit = user_choice(gets.chomp, app)
     end
     puts 'Ruby will find you..'
   end
-end
 
-main = Main.new
-main.main
+main

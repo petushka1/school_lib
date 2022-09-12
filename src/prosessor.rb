@@ -1,15 +1,18 @@
-module Prosessor
+require_relative 'app'
 
-    def create_student(app)
+class Prosessor < App
+    attr_reader :classrooms, :students, :teachers, :books, :rentals
+
+   def create_student
         puts 'Enter Student [Name]'
         name = gets.chomp
         puts 'Enter Student [Age]'
         age = gets.chomp
         parent_permission = check_permission(age)
-        app.create_student(age, parent_permission, name)
-        puts "New Student added:\n[Student] ID: #{app.students.last.id}, "
-        print "Name: #{app.students.last.name}, Age: #{app.students.last.age} "
-        print "Parent permission: #{app.students.last.parent_permission ? 'YES' : 'NO'}\n"
+        create_student(age, parent_permission, name)
+        puts "New Student added:\n[Student] ID: #{students.last.id}, "
+        print "Name: #{students.last.name}, Age: #{students.last.age} "
+        print "Parent permission: #{students.last.parent_permission ? 'YES' : 'NO'}\n"
     end
 
     def create_teacher(app)
@@ -24,7 +27,7 @@ module Prosessor
         print "Name: #{app.teachers.last.name}, Age: #{app.teachers.last.age}, "
         print "Specialization: #{app.teachers.last.specialization}\n"
     end
-    
+=begin
     def create_book(app)
         puts 'Read nothing? Just google some [Book] to add!'
         puts 'Enter Book [Title]'
@@ -81,6 +84,7 @@ module Prosessor
         app.students[input]
         end
     end
+=end
 end
 
   
